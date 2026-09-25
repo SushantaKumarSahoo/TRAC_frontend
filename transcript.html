@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "accent-hover": "#1D4ED8", "background": "#faf8ff", "border-subtle": "#E2E8F0", "on-tertiary-fixed-variant": "#7a3000", "outline-variant": "#c5c5d3", "on-error": "#ffffff", "tertiary": "#250900", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#2c408f", "on-secondary-fixed": "#001d32", "on-secondary-fixed-variant": "#004a75", "surface-container": "#eaedff", "error": "#ba1a1a", "surface-container-highest": "#dae2fd", "on-tertiary-fixed": "#351000", "error-container": "#ffdad6", "secondary-fixed": "#cee5ff", "text-secondary": "#334155", "badge-live": "#DC2626", "inverse-on-surface": "#eef0ff", "on-surface-variant": "#454651", "on-primary-fixed": "#001453", "text-primary": "#0F172A", "primary-container": "#001d6e", "surface-dim": "#d2d9f4", "on-tertiary": "#ffffff", "surface-subtle": "#F1F5F9", "on-primary-container": "#7689dc", "surface-card": "#FFFFFF", "secondary-container": "#59b5fe", "text-muted": "#64748B", "on-tertiary-container": "#e86718", "surface-canvas": "#F8FAFC", "inverse-surface": "#283044", "primary-fixed": "#dde1ff", "outline": "#757682", "surface-container-high": "#e2e7ff", "primary-fixed-dim": "#b8c4ff", "primary": "#000c3d", "surface-variant": "#dae2fd", "on-surface": "#131b2e", "tertiary-fixed-dim": "#ffb693", "tertiary-container": "#471800", "tertiary-fixed": "#ffdbcc", "surface": "#faf8ff", "surface-container-low": "#f2f3ff", "secondary": "#00639a", "on-error-container": "#93000a", "on-background": "#131b2e", "on-secondary": "#ffffff", "surface-tint": "#4559a8", "surface-bright": "#faf8ff", "accent-interactive": "#2563EB", "on-primary": "#ffffff", "secondary-fixed-dim": "#95ccff", "inverse-primary": "#b8c4ff", "border-strong": "#CBD5E1", "on-secondary-container": "#00456d" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-mobile": "1rem", "space-sm": "0.5rem", "margin": "2rem", "space-md": "0.75rem", "gutter": "1.5rem", "space-lg": "1.25rem", "space-xl": "2rem", "gutter-mobile": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-lg": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "display": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-mobile": ["Inter"], "code-sm": ["JetBrains Mono"] }, "fontSize": { "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-lg-mobile": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "display-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface-canvas font-body-md text-body-md text-text-primary antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-card border-r border-border-subtle z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 flex items-center px-space-lg border-b border-border-subtle gap-space-sm"><img alt="CSM TRAC Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WD4Ih5O_E4rGmtCRUp8hIaLGSvm5RmA-n8yI_3x1-4_qRi5D2q-k06iPdojtIQIhEC2g5NEJe_c8h2FkIfR0p2ijZWkS5u-kvVu74U13O8STrZfPZ3udrkHL6wwUj495u2rwTEqgmWKUks9alzf5ZW15bk1s8WA724qPfXYiPPjeTtQz8EfZB0b-8e6QythNnpWl2f-SFTwPI89y9zmADDffm7vRglsn5fozqFAEm0qlCZXIH445A-fn8"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight font-semibold leading-none">CSM TRAC</span><span class="font-label-sm text-label-sm text-text-muted mt-1">csm.tech enterprise</span></div></div><div class="px-space-md py-space-md"><span class="px-space-sm font-label-sm text-label-sm text-text-muted uppercase tracking-wider block mb-space-xs">Navigation</span><nav class="space-y-1" data-active-classes="bg-surface-subtle text-accent-interactive font-medium shadow-none"><a aria-current="page" class="flex items-center gap-space-md px-space-sm py-2 rounded transition-colors bg-surface-subtle text-accent-interactive font-medium shadow-none" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="my-videos" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">video_library</span><span>My Videos</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recent" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">history</span><span>Recent</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="favorites" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">star</span><span>Favorites</span></a></nav></div></div><div class="flex flex-col"><div class="px-space-md py-space-sm border-t border-border-subtle"><span class="px-space-sm font-label-sm text-label-sm text-text-muted uppercase tracking-wider block mb-space-xs">Workspace</span><nav class="space-y-1" data-active-classes="bg-surface-subtle text-accent-interactive font-medium shadow-none"><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="help-and-support" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">help</span><span>Help &amp; Support</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">settings</span><span>Settings</span></a></nav></div><div class="p-space-md border-t border-border-subtle bg-surface-card"><div class="flex items-center gap-space-sm p-space-xs rounded-lg hover:bg-surface-subtle transition-colors cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6omun6R5oL9qCHRGIlB8qOIlIDUNT5UBHwcMZwiWzKIKb7jpouPMz6SD1ev-VSvPMOYPMgk83Z1NZsgN53S_eKbpKgsWmISpC9d02_U2a13q1CXR3DHb2z_yZMDrQTt-3xrAcTL_Anugf5T34wEiBZQUvolPda94t-Qz4gR3-aw8Uh1zAUeKIGs1a4THL5iETeZQko_j2qWlbvD0qUO-1chC3kwy1iJ9fNhdjWz0IOenw3tfdP4k"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-text-primary font-medium truncate">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-text-muted truncate">VP of Product Strategy</span></div><span class="material-symbols-outlined text-text-muted text-lg">unfold_more</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-card border-b border-border-subtle z-40 px-space-xl flex items-center justify-between shadow-[0_1px_2px_rgba(15,23,42,0.04)]"><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-label-md text-label-md text-text-muted">Workspace</span><span class="font-label-sm text-label-sm text-border-strong">/</span><span class="font-label-md text-label-md text-text-primary font-medium">CSM Enterprise Stream</span></div><div class="flex-1 max-w-xl mx-space-xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-text-muted text-lg pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-subtle border border-border-subtle rounded-lg font-body-sm text-body-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-interactive focus:ring-2 focus:ring-accent-interactive/15 transition-all" placeholder="Search videos, meetings, or presenters..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 font-code-sm text-code-sm bg-surface-card border border-border-subtle text-text-muted rounded shadow-none pointer-events-none">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="h-9 px-space-sm flex items-center gap-1.5 bg-surface-card border border-border-subtle hover:bg-surface-subtle hover:border-border-strong text-text-secondary rounded-lg font-label-md text-label-md transition-colors" title="Quick Switch" type="button"><span class="material-symbols-outlined text-lg leading-none">swap_horiz</span><span class="hidden xl:inline">Switch Portal</span></button><button class="h-9 px-space-sm flex items-center gap-1.5 bg-surface-card border border-border-subtle hover:bg-surface-subtle hover:border-border-strong text-text-secondary rounded-lg font-label-md text-label-md transition-colors" title="Feedback" type="button"><span class="material-symbols-outlined text-lg leading-none">rate_review</span><span class="hidden xl:inline">Feedback</span></button><div class="relative"><button class="w-9 h-9 flex items-center justify-center rounded-lg border border-border-subtle hover:bg-surface-subtle hover:border-border-strong text-text-secondary transition-colors relative" title="Notifications" type="button"><span class="material-symbols-outlined text-xl leading-none">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-badge-live rounded-full ring-2 ring-surface-card"></span></button></div><div class="h-6 w-px bg-border-subtle mx-space-xs"></div><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer group"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6omun6R5oL9qCHRGIlB8qOIlIDUNT5UBHwcMZwiWzKIKb7jpouPMz6SD1ev-VSvPMOYPMgk83Z1NZsgN53S_eKbpKgsWmISpC9d02_U2a13q1CXR3DHb2z_yZMDrQTt-3xrAcTL_Anugf5T34wEiBZQUvolPda94t-Qz4gR3-aw8Uh1zAUeKIGs1a4THL5iETeZQko_j2qWlbvD0qUO-1chC3kwy1iJ9fNhdjWz0IOenw3tfdP4k"/><span class="material-symbols-outlined text-text-muted group-hover:text-text-primary transition-colors text-lg leading-none">expand_more</span></div></div></header><main class="w-full pt-16 min-h-screen bg-surface-canvas"><div class="flex flex-col w-full">
+<!-- Top Context Navigation & Meeting Title Bar -->
+<div class="w-full bg-surface-card px-space-xl py-space-md shadow-sm">
+<div class="max-w-[1500px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<a class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-subtle transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-lg leading-none">arrow_back</span>
+<span>Back to My Videos</span>
+</a>
+<span class="h-4 w-px bg-border-subtle hidden sm:block"></span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-primary-fixed-variant tracking-wide uppercase">Executive Stream</span>
+<span class="text-text-muted text-xs">•</span>
+<span class="text-text-muted font-body-sm text-body-sm">Recorded Sep 28, 2024</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-text-primary tracking-tight font-semibold mt-0.5">Quarterly Business Review – Q3 2024</h1>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-9 px-space-md flex items-center gap-1.5 bg-surface-card hover:bg-surface-subtle text-text-secondary rounded-lg font-label-md text-label-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-lg">share</span>
+<span>Share</span>
+</button>
+<button class="h-9 px-space-md flex items-center gap-1.5 bg-surface-card hover:bg-surface-subtle text-text-secondary rounded-lg font-label-md text-label-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-lg">bookmark_border</span>
+<span>Save</span>
+</button>
+<div class="relative">
+<button class="h-9 px-space-md flex items-center gap-1.5 bg-primary-container hover:bg-accent-hover text-on-primary rounded-lg font-label-md text-label-md transition-all shadow-sm" id="downloadDropdownBtn" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export Brief</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Mini-Player & Synchronized Playback Control Scrim -->
+<div class="w-full bg-primary text-on-primary shadow-md sticky top-16 z-30">
+<div class="max-w-[1500px] mx-auto px-space-xl py-2.5 flex items-center justify-between gap-space-md flex-wrap lg:flex-nowrap">
+<!-- Mini Player Graphic & Meta -->
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative w-28 h-16 rounded overflow-hidden shadow-sm shrink-0 bg-surface-canvas flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Corporate boardroom with ultra-wide projection displaying quarterly analytical dashboards, polished walnut table, executive team in deep discussion, soft professional diffuse lighting in crisp high fidelity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1om865flIQ08LgBH3RsB03WbcV0GoM1C1HtjHXTuw4I7SIkfjiHeHJ-BzJxZ3Hixbj-VAj5iXQ-q5m5Zr_n9tDGEA6FPP08zBeH8bvHtck3bwdxQ4xjKn-htaFoQXHKfN2S7r2BESXKW1P_8d-5kxiJB3KdRyJcyCencfWbk2olJ9an1TPKROPXJdDXfRWwAO4a265isW0RVy1clo9gFm7S7u_dViM7SVRr8NNl73u7zr5O3GH1VC"/>
+<div class="absolute inset-0 bg-primary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-2xl drop-shadow">play_circle</span>
+</div>
+<span class="absolute bottom-1 right-1 font-code-sm text-[10px] bg-primary/90 text-on-primary px-1 rounded tracking-tight">18:45</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-badge-live animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-surface-container-highest uppercase tracking-wider font-semibold">Active Playback Chapter</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-primary truncate font-medium">Chapter 3: Engineering Milestones &amp; Platform Scale</span>
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-surface-container-high mt-0.5">
+<span class="text-accent-interactive font-medium">18:45</span>
+<span class="text-outline">/</span>
+<span>58:14</span>
+</div>
+</div>
+</div>
+<!-- Scrubber & Control Hub -->
+<div class="flex-1 max-w-xl hidden md:flex flex-col gap-1 mx-4">
+<div class="flex items-center justify-between font-code-sm text-code-sm text-surface-container-high">
+<span>Speed: 1.0x</span>
+<span>Chapter 3 of 6</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container-highest/20 rounded cursor-pointer overflow-hidden group">
+<div class="absolute left-0 top-0 h-full bg-surface-container-highest/40 w-[62%]"></div>
+<div class="absolute left-0 top-0 h-full bg-accent-interactive rounded w-[32%] transition-all"></div>
+</div>
+</div>
+<!-- Live Player Controls -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="p-1.5 text-surface-container-highest hover:text-on-primary transition-colors" title="Jump Back 10s" type="button">
+<span class="material-symbols-outlined text-xl">replay_10</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-on-primary text-primary flex items-center justify-center hover:bg-surface-subtle transition-colors shadow" type="button">
+<span class="material-symbols-outlined text-xl">pause</span>
+</button>
+<button class="p-1.5 text-surface-container-highest hover:text-on-primary transition-colors" title="Jump Forward 10s" type="button">
+<span class="material-symbols-outlined text-xl">forward_10</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest/30 mx-1"></div>
+<button class="p-1.5 text-surface-container-highest hover:text-on-primary transition-colors" title="Audio Settings" type="button">
+<span class="material-symbols-outlined text-xl">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Tab Bar Navigation -->
+<div class="w-full bg-surface-card shadow-sm">
+<div class="max-w-[1500px] mx-auto px-space-xl flex items-center justify-between">
+<div class="flex items-center gap-space-lg overflow-x-auto">
+<button class="h-12 px-space-xs flex items-center gap-2 font-label-md text-label-md text-text-muted hover:text-text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">info</span>
+<span>Overview</span>
+</button>
+<button class="h-12 px-space-xs flex items-center gap-2 font-label-md text-label-md text-primary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary-container" type="button">
+<span class="material-symbols-outlined text-lg text-primary-container">subject</span>
+<span>Transcript</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-surface-container text-on-primary-fixed-variant font-semibold">Synced</span>
+</button>
+<button class="h-12 px-space-xs flex items-center gap-2 font-label-md text-label-md text-primary font-semibold relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary-container" type="button">
+<span class="material-symbols-outlined text-lg text-primary-container">group</span>
+<span>Participants</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold">8</span>
+</button>
+<button class="h-12 px-space-xs flex items-center gap-2 font-label-md text-label-md text-text-muted hover:text-text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">view_timeline</span>
+<span>Chapters</span>
+</button>
+<button class="h-12 px-space-xs flex items-center gap-2 font-label-md text-label-md text-text-muted hover:text-text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">attachment</span>
+<span>Download Assets</span>
+</button>
+</div>
+<div class="hidden lg:flex items-center gap-space-sm font-label-sm text-label-sm text-text-muted">
+<span class="material-symbols-outlined text-base">verified</span>
+<span>AI Diarization 99.4% Confidence</span>
+</div>
+</div>
+</div>
+<!-- Primary Workspace Canvas: Main Transcript + Side Attendees Panel -->
+<div class="max-w-[1500px] w-full mx-auto px-space-xl py-space-xl">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT 8-COLUMN: Interactive Transcript Engine -->
+<section class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Transcript Filter & Controller Toolbar -->
+<div class="bg-surface-card p-space-md rounded-xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex-1 w-full sm:w-auto relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-text-muted text-lg pointer-events-none">search</span>
+<input class="w-full h-9 pl-9 pr-24 bg-surface-subtle rounded font-body-sm text-body-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:bg-surface-card focus:shadow-md transition-all" id="transcriptSearchInput" placeholder="Search transcript (e.g., 'API', 'revenue', 'action items')..." type="text" value="API"/>
+<div class="absolute right-2.5 flex items-center gap-1 font-code-sm text-[11px] text-text-muted bg-surface-card px-2 py-0.5 rounded shadow-sm">
+<span class="text-accent-interactive font-medium">14</span>
+<span>matches</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-between sm:justify-end">
+<!-- Speaker Dropdown Filter -->
+<div class="relative">
+<select class="h-9 px-space-sm pr-8 bg-surface-subtle hover:bg-surface-canvas text-text-secondary rounded font-label-md text-label-md cursor-pointer appearance-none focus:outline-none">
+<option selected="">All Speakers (3 Speakers)</option>
+<option>Dr. Aris Thorne (CSO)</option>
+<option>Alex Mercer (CFO)</option>
+<option>Sarah Jenkins (VP Prod)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-text-muted pointer-events-none text-base">expand_more</span>
+</div>
+<!-- Auto-scroll Switcher -->
+<label class="flex items-center gap-2 cursor-pointer select-none px-space-xs py-1 rounded hover:bg-surface-subtle transition-colors">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-border-strong peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-card after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-card after:rounded-full after:h-3 after:w-3.5 after:transition-all peer-checked:bg-accent-interactive relative"></div>
+<span class="font-label-sm text-label-sm text-text-secondary">Auto-scroll</span>
+</label>
+<!-- Export Formats Dropdown Button -->
+<button class="h-9 px-space-sm bg-surface-subtle hover:bg-surface-card text-text-primary rounded font-label-sm text-label-sm flex items-center gap-1 shadow-sm transition-all" title="Download Formats" type="button">
+<span class="material-symbols-outlined text-base">file_download</span>
+<span>VTT / TXT</span>
+</button>
+</div>
+</div>
+<!-- Transcript Stream Items -->
+<div class="flex flex-col gap-space-sm" id="transcriptStream">
+<!-- Block 1: 00:02 Dr. Aris Thorne -->
+<div class="group bg-surface-card hover:bg-surface-subtle/50 p-space-md rounded-xl shadow-sm transition-all">
+<div class="flex items-start gap-space-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Executive portrait of Dr. Aris Thorne, distinguished middle-aged male strategy director, tailored charcoal blazer, subtle rim lighting, professional enterprise background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRwhf7N895JYc_Q9Tht3eS7ZGxz7BPIPwzmIRgkq7G9mHxX-sIJeiXG8ePxWVzZq4PtckAPmLt6MGLTU0NB0IUy-yHCtf8sM4FiZ8MCsPqner8lXJcjZ1DZmS536P5JgrnWeamz8t7e4bucbQ9Vf0iT61D0Ei8-97ftKNtc1im8Hb28lDxLT9yPy6YhTFNyGIqWAja0KUxTMFyfcaVsifTT25-L3x6qocvzjMgNJGi0lrtUCvsJeh3"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Dr. Aris Thorne</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-container text-on-primary-fixed-variant">Chief Strategy Officer</span>
+</div>
+<button class="font-code-sm text-code-sm text-text-muted hover:text-accent-interactive bg-surface-subtle px-2 py-0.5 rounded transition-colors group-hover:bg-surface-card shadow-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">play_arrow</span>
+<span>00:02</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                  Good morning team, let's officially begin the Q3 executive review. Today we will cover our core financial metrics, customer onboarding pipeline, and our platform scalability breakthroughs. Over the last ninety days, our distributed team has demonstrated exceptional alignment across operational units.
+                </p>
+</div>
+</div>
+</div>
+<!-- Block 2: 05:32 Alex Mercer -->
+<div class="group bg-surface-card hover:bg-surface-subtle/50 p-space-md rounded-xl shadow-sm transition-all">
+<div class="flex items-start gap-space-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Professional studio portrait of Alex Mercer, enterprise chief financial officer, dark blue suit, confident posture, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQS5oxf00vvAubtDXmP6TM4N4Yp51lnaRS_y-bTPNFPyirsPV4eXUNFdj7cNh-6nnkbG1ngZg_awbIhRfxQuMK9a8O766yHOkFs3qf0Ob642kIZHxUPbL3QbePH-FlI1Uh4ULmEiOUVJwX6Eo_9OeXTxpYlrQc6lwGFMK0wLjTbul_bSJl0aih9-l8cVrH8eRAxllGG1vnH4YVR7otPQo9--12H-EA6s3FQOubuP6DSHIeeamy8htq"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Alex Mercer</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-subtle text-text-secondary">Chief Financial Officer</span>
+</div>
+<button class="font-code-sm text-code-sm text-text-muted hover:text-accent-interactive bg-surface-subtle px-2 py-0.5 rounded transition-colors group-hover:bg-surface-card shadow-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">play_arrow</span>
+<span>05:32</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                  Looking at Slide 4, our quarterly recurring revenue grew by 24% year-over-year, surpassing our enterprise targets. Gross margins have stabilized at 81.2%, primarily driven by infrastructure cost optimizations and lower egress fees across our cloud storage tiers. We project sustained tailwinds going into the fourth quarter.
+                </p>
+</div>
+</div>
+</div>
+<!-- Block 3: 12:15 Sarah Jenkins -->
+<div class="group bg-surface-card hover:bg-surface-subtle/50 p-space-md rounded-xl shadow-sm transition-all">
+<div class="flex items-start gap-space-md">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6omun6R5oL9qCHRGIlB8qOIlIDUNT5UBHwcMZwiWzKIKb7jpouPMz6SD1ev-VSvPMOYPMgk83Z1NZsgN53S_eKbpKgsWmISpC9d02_U2a13q1CXR3DHb2z_yZMDrQTt-3xrAcTL_Anugf5T34wEiBZQUvolPda94t-Qz4gR3-aw8Uh1zAUeKIGs1a4THL5iETeZQko_j2qWlbvD0qUO-1chC3kwy1iJ9fNhdjWz0IOenw3tfdP4k"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Sarah Jenkins</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-subtle text-text-secondary">VP of Product Strategy</span>
+</div>
+<button class="font-code-sm text-code-sm text-text-muted hover:text-accent-interactive bg-surface-subtle px-2 py-0.5 rounded transition-colors group-hover:bg-surface-card shadow-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">play_arrow</span>
+<span>12:15</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                  On the product side, the CSM TRAC deployment across all regional offices has reduced meeting debrief overhead by 35%. Feedback from cross-functional squads highlights the speed of contextual search and high automated transcription fidelity. The unified workspace integrations for Slack and Teams have also achieved 91% weekly adoption.
+                </p>
+</div>
+</div>
+</div>
+<!-- Block 4 (ACTIVE / HIGHLIGHTED SYNC): 18:45 Dr. Aris Thorne -->
+<div class="relative bg-surface-container-high/60 p-space-md rounded-xl shadow-md transition-all overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-accent-interactive"></div>
+<div class="flex items-start gap-space-md pl-1">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow" data-alt="Close up executive portrait of Dr. Aris Thorne speaking intently, corporate boardroom context, cinematic business setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLLRUoWrIY0xmCHOGZPoHQDCXcmFUNH3g9oZ7NBH2h8DlYkt1iaQ5HWFep1-_NEHnG8uLWXuCMp__w6KuQ4BmWIibpCMy-9KvrEzTqi-baKfP9nqWUQvs6TjxOqp9tsIWRbwQtgMsa5wR08SFwC4cR8U_-dVFHsCDOOxValKfZAsVjkc5E19WLB9wLme1aT3FqZnSm-YaPGzE2mLtP97iDnV9k2DZPHCkxh91dNRNBoYusLk9L42jS"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-accent-interactive text-on-primary flex items-center justify-center text-[10px]">
+<span class="material-symbols-outlined text-xs">graphic_eq</span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Dr. Aris Thorne</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-primary-container text-on-primary">Currently Speaking</span>
+</div>
+<button class="font-code-sm text-code-sm text-on-primary bg-accent-interactive px-2 py-0.5 rounded shadow-sm flex items-center gap-1 font-medium" type="button">
+<span class="material-symbols-outlined text-xs">volume_up</span>
+<span>18:45</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-text-primary font-medium leading-relaxed">
+                  Moving to our engineering progress, the automated export pipeline and cloud storage integration have maintained 99.98% reliability. Furthermore, our microservices architecture handled over 1.2 million concurrent ingestion events without any latency degradation during the global rollouts. Our core <mark class="bg-secondary-fixed text-on-secondary-fixed px-1 rounded">API</mark> response throughput improved by 42ms.
+                </p>
+<div class="mt-space-sm pt-space-xs flex items-center gap-space-md text-xs text-text-secondary">
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-accent-interactive">
+<span class="material-symbols-outlined text-sm">flag</span>
+                    Key Takeaway: Engineering Resilience
+                  </span>
+<span class="text-text-muted">•</span>
+<button class="hover:text-text-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+                    Copy Segment
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Block 5: 25:10 Alex Mercer -->
+<div class="group bg-surface-card hover:bg-surface-subtle/50 p-space-md rounded-xl shadow-sm transition-all">
+<div class="flex items-start gap-space-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Studio portrait photo of financial executive Alex Mercer reviewing documentation, subtle modern boardroom background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOTji44R2Icuvsl6BaazzeK8dOd4CT1anLi8So-Fe45uAFywQa7bIZXSvpGBZiONIrvig3mPJVaXcYl5XQwtAY8G3ZOeiLt0Wh8jmNfvo7c8u_AcAkO5_iW6eMfSmEnsmqgi1ldksNU4JidtfII2MitxIsv62CMAydHf0vf62wdD4MhK-bXQRi3KIZT6T90YdVlckyOmJR_fSGBL3ShhpqqOFf3bRoLziYVmA7Gn-aBTHVVPJIas_M"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Alex Mercer</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-subtle text-text-secondary">Chief Financial Officer</span>
+</div>
+<button class="font-code-sm text-code-sm text-text-muted hover:text-accent-interactive bg-surface-subtle px-2 py-0.5 rounded transition-colors group-hover:bg-surface-card shadow-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">play_arrow</span>
+<span>25:10</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                  Let's review the capital expenditure breakdown for infrastructure upgrades in EMEA. With the regional regulatory mandates coming in next semester, we have ring-fenced $4.2M towards sovereign host certification and internal security compliance audits.
+                </p>
+</div>
+</div>
+</div>
+<!-- Block 6: 31:40 Elena Rostova -->
+<div class="group bg-surface-card hover:bg-surface-subtle/50 p-space-md rounded-xl shadow-sm transition-all">
+<div class="flex items-start gap-space-md">
+<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Corporate headshot of Elena Rostova, female Vice President of Engineering, sharp tailored attire, intelligent confident expression, technical enterprise headquarters background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjLWAjtTumqA9s5R1cP8GZxtLbFie6hs7nP0u0uQ6JAzCDARjkyf80Ly8VH_BVD8zC2m9_a49P9baCMYf74rkauaIncil4SDOP3XR0g9JhcfxvTnskfSRuVDF-Wyf1VdsETcuMTwFvTlWE0-awNrOTb1VWghp4vbWOt-pIxBGlSve3iIJDCPR1IJWI7kaj3J7a1RBVJKKLQV_77vVsQxS0jqLN1h7JVurvkJK-dEKmuMIqbSSblkwY"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Elena Rostova</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-subtle text-text-secondary">VP of Engineering</span>
+</div>
+<button class="font-code-sm text-code-sm text-text-muted hover:text-accent-interactive bg-surface-subtle px-2 py-0.5 rounded transition-colors group-hover:bg-surface-card shadow-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">play_arrow</span>
+<span>31:40</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+                  Confirming Alex's point, our European data center migration is 70% complete. We anticipate zero planned downtime for the remaining migration windows scheduled for late October. The localized edge caching will further improve video playback buffering metrics by another 18%.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT 4-COLUMN: Participants & Attendees Directory + Meeting Context -->
+<aside class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Participants Main Card -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-semibold">Meeting Participants</h2>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-surface-subtle text-text-secondary">8</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Active Stream</span>
+</div>
+<!-- Participant Search Filter -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-text-muted text-base pointer-events-none">filter_list</span>
+<input class="w-full h-8 pl-8 pr-3 bg-surface-subtle rounded font-body-sm text-body-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:bg-surface-card focus:shadow-sm transition-all" placeholder="Filter attendees..." type="text"/>
+</div>
+<!-- Speaking Time Summary Bar Chart Visual -->
+<div class="bg-surface-subtle p-space-sm rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-text-secondary">
+<span>Speaking Distribution</span>
+<span class="font-code-sm text-[11px] text-text-muted">Total: 58m 14s</span>
+</div>
+<div class="w-full h-2 rounded bg-border-subtle flex overflow-hidden">
+<div class="h-full bg-primary" style="width: 48%" title="Dr. Aris Thorne (48%)"></div>
+<div class="h-full bg-accent-interactive" style="width: 26%" title="Alex Mercer (26%)"></div>
+<div class="h-full bg-secondary-container" style="width: 14%" title="Sarah Jenkins (14%)"></div>
+<div class="h-full bg-surface-tint" style="width: 8%" title="Elena Rostova (8%)"></div>
+<div class="h-full bg-outline" style="width: 4%" title="Marcus Vance (4%)"></div>
+</div>
+</div>
+<!-- Attendee List -->
+<div class="flex flex-col gap-space-xs divide-y-0">
+<!-- Attendee 1 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" data-alt="Portrait of Dr. Aris Thorne CSO, senior corporate leader in professional corporate headquarters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlBzjn7rlWwhONfQ_ntCVM2CKgO1LK7bzobfrEsrXKHa8GP_hCXS12vZlGUwmoCBRJYIQn1cdFhG3nLk4g8EAth5GzLXWblYPdH_D_W5jopZq7IcSYLSG70D5ABp9hitsP9QfTPddV3VRtJfr5MwqEY5nnPYBV27W1hAInfK_dzKWjdsyF1g-26q85VnhZV6H24OsfpWGQZ5k7Uy23CWqVKp5eiwAASY8wsw1Kj3g1V-_SRN5P0EmX"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-badge-live ring-2 ring-surface-card"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-primary font-medium truncate">Dr. Aris Thorne</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">Chief Strategy Officer</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-code-sm text-[12px] text-primary font-semibold">48%</span>
+<span class="material-symbols-outlined text-text-muted text-base group-hover:text-text-primary">mic</span>
+</div>
+</div>
+<!-- Attendee 2 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" data-alt="Portrait of Alex Mercer CFO, executive corporate setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQO83bx2K9C63qnwoP-Eu-BfBFaj8MrbToADUEHruhABQmQYLVsLSC3EftjQMk9objJOJ7q4B2XV63VF--sC5H6y_TKnCOMaekUU80ENH9ydzN4ZYV7vow9WZL5yAESqFyhaJTKKsQPGKguggZbj813OIPo3C8cXA6uIYfRHGcAOiYHEOZOGSRwhpw0wKSb-O6NaCiEFOlLoEE11Ax1ynXA96yirGkjGVIqjjb9ocuJox0wNiZFN2"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-primary font-medium truncate">Alex Mercer</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">Chief Financial Officer</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-code-sm text-[12px] text-accent-interactive font-medium">26%</span>
+<span class="material-symbols-outlined text-text-muted text-base group-hover:text-text-primary">mic</span>
+</div>
+</div>
+<!-- Attendee 3 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<img alt="Sarah Jenkins" class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6omun6R5oL9qCHRGIlB8qOIlIDUNT5UBHwcMZwiWzKIKb7jpouPMz6SD1ev-VSvPMOYPMgk83Z1NZsgN53S_eKbpKgsWmISpC9d02_U2a13q1CXR3DHb2z_yZMDrQTt-3xrAcTL_Anugf5T34wEiBZQUvolPda94t-Qz4gR3-aw8Uh1zAUeKIGs1a4THL5iETeZQko_j2qWlbvD0qUO-1chC3kwy1iJ9fNhdjWz0IOenw3tfdP4k"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-primary font-medium truncate">Sarah Jenkins</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">VP Product Strategy</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-code-sm text-[12px] text-text-secondary font-medium">14%</span>
+<span class="material-symbols-outlined text-text-muted text-base group-hover:text-text-primary">mic</span>
+</div>
+</div>
+<!-- Attendee 4 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" data-alt="Portrait of Elena Rostova, VP of Engineering, tech leadership executive portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZqglku306nNk6LGOYpwxLghjEPM0CFvR_CRHePmyoXM89rpuYiT-wwuZA83D0uoVpRb1kYY5cuhAAzTkW5KIK3qKPcTXbgxEhiza9NhNilw-Gk8hPdj1c70kQT4yz-R93wIW2PwHNzFa2E-0QvVoEufoUPdiaqRhomCZ3Uq88i854KjHYPhn5KEpk2SUPkdmUyaTZxVCpQ-A39YqgHhYeG53PnZAIJ9nD4Fj1fVrr-iysFXieH48W"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-primary font-medium truncate">Elena Rostova</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">VP Engineering</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-code-sm text-[12px] text-text-muted">8%</span>
+<span class="material-symbols-outlined text-text-muted text-base group-hover:text-text-primary">mic</span>
+</div>
+</div>
+<!-- Attendee 5 -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" data-alt="Portrait of Marcus Vance, Principal Cloud Architect, confident professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKTCorXZoGf_fLn65p77wYPqJbMmmAYqz91DxeDFuu03tpsORj9JJmN1BaLoRYEcPTexqdUZ7hfVFhp6uxn8z5tuze_-l3KGfNNeVs5tag1NG3ho9yEV8GhDzYO6-HifboOA9gY1uR6SgUCH-nsF4NI1ENf0o-VEXBidCz8Ds5EDE-Gq-9skI--PiKGPiFbfRgjxFp2XD-h9czyQkca6BxhJJ77_yBe8OM9DM58W0G2Qrshs8Z69sD"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-primary font-medium truncate">Marcus Vance</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">Principal Architect</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-code-sm text-[12px] text-text-muted">4%</span>
+<span class="material-symbols-outlined text-text-muted text-base group-hover:text-text-primary">mic</span>
+</div>
+</div>
+<!-- Attendee 6: Silent Attendee -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm opacity-80" data-alt="Portrait of David Sterling, VP Sales, executive business casual headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGTUw3AfIodfpeQSMw2fXksxI6n1uJ-DV-H_S6M5Fsb8mBaoMJxLTJp2w2-nqJP_K2amq5FFseaqpz5divQl5XpLFjDMkg_1ROqs3TxfNW4l3nhndNQ9WOl71p72DCdD-i3Uf8N87_06rTL7TQrKcRmg-QcmiOoRQVl3IHCb9E8mpXWwMUt0AxeKtABiyYYQgW5zO34290glcVlodPcXpeNxE99XlLcXbLrrzEGtTdgsJQTxmmStUk"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-secondary truncate">David Sterling</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">VP Global Enterprise Sales</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] bg-surface-subtle text-text-muted font-medium shrink-0">Attendee</span>
+</div>
+<!-- Attendee 7: Silent Attendee -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm opacity-80" data-alt="Portrait of Rachel Adams, Director Enterprise Operations, smiling corporate manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMrv2SG8ThdtGZ2GOz7KJJHd-9VjR0f68rcexdr8JhmO9vfSyWmgM8GqWmYKkGXkh-PiVlE5ScQToK2_DtpjpTYnKQfya0O1LGkTMsBYtax1Ti4aUc8Inn6a3lRhysJyoOViM8IGYhXqQcK9_Zd2UiU4VlpQLoiBsOj8uI8nEbX4n5DX2i3OoVfUoVIpqaVbeYiYZDIcoK86-4FB5K1AR-uSLc4AK-1CnW87iuMTrUnQz_2yqqV1O"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-secondary truncate">Rachel Adams</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">Dir. Enterprise Operations</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] bg-surface-subtle text-text-muted font-medium shrink-0">Attendee</span>
+</div>
+<!-- Attendee 8: Compliance Observer -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-subtle transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-text-secondary font-medium text-xs shrink-0 shadow-sm">
+                  SEC
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-text-secondary truncate">Audit Vault Bot</span>
+<span class="font-label-sm text-label-sm text-text-muted truncate">SOC2 Archival Agent</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] bg-surface-container-high text-on-primary-fixed-variant font-medium shrink-0">Recorder</span>
+</div>
+</div>
+</div>
+<!-- Meeting Metadata Specification Card -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-text-primary font-semibold">Session Audit Details</span>
+<span class="material-symbols-outlined text-text-muted text-lg">info</span>
+</div>
+<div class="space-y-space-sm font-body-sm text-body-sm">
+<div class="flex items-center justify-between py-1">
+<span class="text-text-muted">Total Session Duration</span>
+<span class="font-code-sm text-code-sm text-text-primary font-medium">58m 14s</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-text-muted">Facility / Ingest Point</span>
+<span class="text-text-primary font-medium">Conf Room 4A (NY-HQ)</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-text-muted">Transcription Engine</span>
+<span class="text-text-primary font-medium">CSM TRAC Whisper v3.2</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-text-muted">Spoken Language</span>
+<span class="text-text-primary font-medium">English (United States)</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-text-muted">Security Classification</span>
+<span class="inline-flex items-center gap-1 font-semibold text-xs text-badge-live">
+<span class="material-symbols-outlined text-xs">lock</span>
+                Confidential - Tier 2
+              </span>
+</div>
+</div>
+<!-- Audit Signature Block -->
+<div class="p-space-sm bg-surface-subtle rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-accent-interactive text-xl">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">Integrity Verified</span>
+<span class="font-code-sm text-[11px] text-text-muted truncate">SHA256: 9b2d8f...301a</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for transcript jumping & search keyword reactivity
+  const searchInput = document.getElementById('transcriptSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const val = e.target.value.toLowerCase().trim();
+      const paragraphs = document.querySelectorAll('#transcriptStream p');
+      paragraphs.forEach(p => {
+        if (!val) {
+          p.parentElement.parentElement.parentElement.classList.remove('opacity-40');
+        } else if (p.textContent.toLowerCase().includes(val)) {
+          p.parentElement.parentElement.parentElement.classList.remove('opacity-40');
+        } else {
+          p.parentElement.parentElement.parentElement.classList.add('opacity-40');
+        }
+      });
+    });
+  }
+</script></main></div></body></html>

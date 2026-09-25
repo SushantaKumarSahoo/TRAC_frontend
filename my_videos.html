@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "accent-hover": "#1D4ED8", "background": "#faf8ff", "border-subtle": "#E2E8F0", "on-tertiary-fixed-variant": "#7a3000", "outline-variant": "#c5c5d3", "on-error": "#ffffff", "tertiary": "#250900", "surface-container-lowest": "#ffffff", "on-primary-fixed-variant": "#2c408f", "on-secondary-fixed": "#001d32", "on-secondary-fixed-variant": "#004a75", "surface-container": "#eaedff", "error": "#ba1a1a", "surface-container-highest": "#dae2fd", "on-tertiary-fixed": "#351000", "error-container": "#ffdad6", "secondary-fixed": "#cee5ff", "text-secondary": "#334155", "badge-live": "#DC2626", "inverse-on-surface": "#eef0ff", "on-surface-variant": "#454651", "on-primary-fixed": "#001453", "text-primary": "#0F172A", "primary-container": "#001d6e", "surface-dim": "#d2d9f4", "on-tertiary": "#ffffff", "surface-subtle": "#F1F5F9", "on-primary-container": "#7689dc", "surface-card": "#FFFFFF", "secondary-container": "#59b5fe", "text-muted": "#64748B", "on-tertiary-container": "#e86718", "surface-canvas": "#F8FAFC", "inverse-surface": "#283044", "primary-fixed": "#dde1ff", "outline": "#757682", "surface-container-high": "#e2e7ff", "primary-fixed-dim": "#b8c4ff", "primary": "#000c3d", "surface-variant": "#dae2fd", "on-surface": "#131b2e", "tertiary-fixed-dim": "#ffb693", "tertiary-container": "#471800", "tertiary-fixed": "#ffdbcc", "surface": "#faf8ff", "surface-container-low": "#f2f3ff", "secondary": "#00639a", "on-error-container": "#93000a", "on-background": "#131b2e", "on-secondary": "#ffffff", "surface-tint": "#4559a8", "surface-bright": "#faf8ff", "accent-interactive": "#2563EB", "on-primary": "#ffffff", "secondary-fixed-dim": "#95ccff", "inverse-primary": "#b8c4ff", "border-strong": "#CBD5E1", "on-secondary-container": "#00456d" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-mobile": "1rem", "space-sm": "0.5rem", "margin": "2rem", "space-md": "0.75rem", "gutter": "1.5rem", "space-lg": "1.25rem", "space-xl": "2rem", "gutter-mobile": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-lg": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "display": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "display-mobile": ["Inter"], "code-sm": ["JetBrains Mono"] }, "fontSize": { "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-lg-mobile": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "display-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface-canvas font-body-md text-body-md text-text-primary antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-card border-r border-border-subtle z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 flex items-center px-space-lg border-b border-border-subtle gap-space-sm"><img alt="CSM TRAC Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WD4Ih5O_E4rGmtCRUp8hIaLGSvm5RmA-n8yI_3x1-4_qRi5D2q-k06iPdojtIQIhEC2g5NEJe_c8h2FkIfR0p2ijZWkS5u-kvVu74U13O8STrZfPZ3udrkHL6wwUj495u2rwTEqgmWKUks9alzf5ZW15bk1s8WA724qPfXYiPPjeTtQz8EfZB0b-8e6QythNnpWl2f-SFTwPI89y9zmADDffm7vRglsn5fozqFAEm0qlCZXIH445A-fn8"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight font-semibold leading-none">CSM TRAC</span><span class="font-label-sm text-label-sm text-text-muted mt-1">csm.tech enterprise</span></div></div><div class="px-space-md py-space-md"><span class="px-space-sm font-label-sm text-label-sm text-text-muted uppercase tracking-wider block mb-space-xs">Navigation</span><nav class="space-y-1" data-active-classes="bg-surface-subtle text-accent-interactive font-medium shadow-none"><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">grid_view</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-sm py-2 rounded transition-colors bg-surface-subtle text-accent-interactive font-medium shadow-none" data-path="my-videos" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">video_library</span><span>My Videos</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recent" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">history</span><span>Recent</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="favorites" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">star</span><span>Favorites</span></a></nav></div></div><div class="flex flex-col"><div class="px-space-md py-space-sm border-t border-border-subtle"><span class="px-space-sm font-label-sm text-label-sm text-text-muted uppercase tracking-wider block mb-space-xs">Workspace</span><nav class="space-y-1" data-active-classes="bg-surface-subtle text-accent-interactive font-medium shadow-none"><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="help-and-support" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">help</span><span>Help &amp; Support</span></a><a class="flex items-center gap-space-md px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-xl leading-none text-text-muted">settings</span><span>Settings</span></a></nav></div><div class="p-space-md border-t border-border-subtle bg-surface-card"><div class="flex items-center gap-space-sm p-space-xs rounded-lg hover:bg-surface-subtle transition-colors cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6omun6R5oL9qCHRGIlB8qOIlIDUNT5UBHwcMZwiWzKIKb7jpouPMz6SD1ev-VSvPMOYPMgk83Z1NZsgN53S_eKbpKgsWmISpC9d02_U2a13q1CXR3DHb2z_yZMDrQTt-3xrAcTL_Anugf5T34wEiBZQUvolPda94t-Qz4gR3-aw8Uh1zAUeKIGs1a4THL5iETeZQko_j2qWlbvD0qUO-1chC3kwy1iJ9fNhdjWz0IOenw3tfdP4k"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-text-primary font-medium truncate">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-text-muted truncate">VP of Product Strategy</span></div><span class="material-symbols-outlined text-text-muted text-lg">unfold_more</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-card border-b border-border-subtle z-40 px-space-xl flex items-center justify-between shadow-[0_1px_2px_rgba(15,23,42,0.04)]"><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="font-label-md text-label-md text-text-muted">Workspace</span><span class="font-label-sm text-label-sm text-border-strong">/</span><span class="font-label-md text-label-md text-text-primary font-medium">CSM Enterprise Stream</span></div><div class="flex-1 max-w-xl mx-space-xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-text-muted text-lg pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-subtle border border-border-subtle rounded-lg font-body-sm text-body-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-interactive focus:ring-2 focus:ring-accent-interactive/15 transition-all" placeholder="Search videos, meetings, or presenters..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 font-code-sm text-code-sm bg-surface-card border border-border-subtle text-text-muted rounded shadow-none pointer-events-none">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="h-9 px-space-sm flex items-center gap-1.5 bg-surface-card border border-border-subtle hover:bg-surface-subtle hover:border-border-strong text-text-secondary rounded-lg font-label-md text-label-md transition-colors" title="Quick Switch" type="button"><span class="material-symbols-outlined text-lg leading-none">swap_horiz</span><span class="hidden xl:inline">Switch Portal</span></button><button class="h-9 px-space-sm flex items-center gap-1.5 bg-surface-card border border-border-subtle hover:bg-surface-subtle hover:border-border-strong text-text-secondary rounded-lg font-label-md text-label-md transition-colors" title="Feedback" type="button"><span class="material-symbols-outlined text-lg leading-none">rate_review</span><span class="hidden xl:inline">Feedback</span></button><div class="relative"><button class="w-9 h-9 flex items-center justify-center rounded-lg border border-border-subtle hover:bg-surface-subtle hover:border-border-strong text-text-secondary transition-colors relative" title="Notifications" type="button"><span class="material-symbols-outlined text-xl leading-none">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-badge-live rounded-full ring-2 ring-surface-card"></span></button></div><div class="h-6 w-px bg-border-subtle mx-space-xs"></div><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer group"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO6omun6R5oL9qCHRGIlB8qOIlIDUNT5UBHwcMZwiWzKIKb7jpouPMz6SD1ev-VSvPMOYPMgk83Z1NZsgN53S_eKbpKgsWmISpC9d02_U2a13q1CXR3DHb2z_yZMDrQTt-3xrAcTL_Anugf5T34wEiBZQUvolPda94t-Qz4gR3-aw8Uh1zAUeKIGs1a4THL5iETeZQko_j2qWlbvD0qUO-1chC3kwy1iJ9fNhdjWz0IOenw3tfdP4k"/><span class="material-symbols-outlined text-text-muted group-hover:text-text-primary transition-colors text-lg leading-none">expand_more</span></div></div></header><main class="w-full pt-16 min-h-screen bg-surface-canvas"><div class="flex flex-col w-full">
+<div class="px-space-xl py-space-lg flex flex-col gap-space-lg">
+<!-- Header & Breadcrumbs & Summary Metric -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-text-muted">
+<a class="hover:text-accent-interactive transition-colors" href="#">Home</a>
+<span class="text-outline">/</span>
+<span class="text-text-primary font-medium">My Videos</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight font-semibold">My Videos</h1>
+<p class="font-body-md text-body-md text-text-secondary max-w-2xl">
+          Browse all meeting recordings and sessions published to your enterprise account.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold tracking-normal text-text-secondary">
+            148 processed videos across 6 departments
+          </span>
+</div>
+</div>
+</div>
+<!-- Advanced Enterprise Toolbar -->
+<div class="bg-surface-card p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<!-- Search and Key Filter Row -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search -->
+<div class="relative flex-1 max-w-xl">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-muted text-lg pointer-events-none">search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-surface-subtle rounded-lg font-body-sm text-body-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:bg-surface-container-lowest transition-all" id="table-search" placeholder="Filter by title, presenter, or keywords..." type="text"/>
+</div>
+<!-- View Controls & Quick Sort -->
+<div class="flex items-center justify-between lg:justify-end gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase hidden sm:inline">Sort:</span>
+<div class="relative">
+<select class="appearance-none h-10 pl-3 pr-8 bg-surface-subtle rounded-lg font-label-md text-label-md text-text-primary cursor-pointer hover:bg-surface-container transition-colors focus:outline-none">
+<option selected="">Date Added: Newest First</option>
+<option>Meeting Date: Recent</option>
+<option>Duration: Longest</option>
+<option>Duration: Shortest</option>
+<option>Title: A to Z</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2.5 text-text-muted text-lg pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- View Mode Toggle -->
+<div class="flex items-center bg-surface-subtle p-1 rounded-lg">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-card text-accent-interactive shadow-sm transition-all" id="view-list-btn" onclick="toggleView('list')" title="Table View" type="button">
+<span class="material-symbols-outlined text-lg leading-none">format_list_bulleted</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-text-muted hover:text-text-primary transition-all" id="view-grid-btn" onclick="toggleView('grid')" title="Grid View" type="button">
+<span class="material-symbols-outlined text-lg leading-none">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Enterprise Facet Selectors Strip -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<!-- Department -->
+<div class="relative">
+<select class="appearance-none h-8 pl-3 pr-7 bg-surface-subtle hover:bg-surface-container-high rounded text-text-secondary font-label-sm text-label-sm cursor-pointer transition-colors focus:outline-none">
+<option>All Departments</option>
+<option>Executive</option>
+<option>Engineering</option>
+<option>Product</option>
+<option>Sales</option>
+<option>Legal &amp; Ops</option>
+<option>Design</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1.5 text-text-muted text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Presenter -->
+<div class="relative">
+<select class="appearance-none h-8 pl-3 pr-7 bg-surface-subtle hover:bg-surface-container-high rounded text-text-secondary font-label-sm text-label-sm cursor-pointer transition-colors focus:outline-none">
+<option>All Presenters</option>
+<option>Dr. Aris Thorne</option>
+<option>Elena Rostova</option>
+<option>Marcus Vance</option>
+<option>Priya Patel</option>
+<option>David Sterling</option>
+<option>Alex Chen</option>
+<option>Maya Lin</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1.5 text-text-muted text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Date Range -->
+<div class="relative">
+<select class="appearance-none h-8 pl-3 pr-7 bg-surface-subtle hover:bg-surface-container-high rounded text-text-secondary font-label-sm text-label-sm cursor-pointer transition-colors focus:outline-none">
+<option>Any Time</option>
+<option>Last 30 Days</option>
+<option>Q3 2024</option>
+<option>This Year</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1.5 text-text-muted text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Duration -->
+<div class="relative">
+<select class="appearance-none h-8 pl-3 pr-7 bg-surface-subtle hover:bg-surface-container-high rounded text-text-secondary font-label-sm text-label-sm cursor-pointer transition-colors focus:outline-none">
+<option>Any Duration</option>
+<option>&lt; 15 mins</option>
+<option>15 - 45 mins</option>
+<option>&gt; 45 mins</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1.5 text-text-muted text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Type -->
+<div class="relative">
+<select class="appearance-none h-8 pl-3 pr-7 bg-surface-subtle hover:bg-surface-container-high rounded text-text-secondary font-label-sm text-label-sm cursor-pointer transition-colors focus:outline-none">
+<option>All Types</option>
+<option>Townhalls</option>
+<option>Workshops</option>
+<option>Client Calls</option>
+<option>Reviews</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1.5 text-text-muted text-sm pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Reset Button -->
+<button class="h-8 px-2.5 text-text-muted hover:text-text-primary text-label-sm font-label-sm flex items-center gap-1 rounded hover:bg-surface-subtle transition-colors ml-auto" type="button">
+<span class="material-symbols-outlined text-sm">restart_alt</span>
+<span>Reset Filters</span>
+</button>
+</div>
+</div>
+<!-- Active View Container: List View (Default) -->
+<div class="bg-surface-card rounded-xl shadow-sm overflow-hidden flex flex-col" id="list-view-section">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-subtle/80 text-text-muted font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 w-10 text-center" scope="col">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-3 px-4 min-w-[340px]" scope="col">Video Session</th>
+<th class="py-3 px-4 min-w-[130px]" scope="col">Meeting Date</th>
+<th class="py-3 px-4 min-w-[170px]" scope="col">Presenter</th>
+<th class="py-3 px-4 min-w-[120px]" scope="col">Department</th>
+<th class="py-3 px-4 min-w-[100px]" scope="col">Duration</th>
+<th class="py-3 px-4 min-w-[130px]" scope="col">Published</th>
+<th class="py-3 px-4 text-right min-w-[140px]" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-subtle font-body-md text-body-md text-text-primary">
+<!-- Row 1: Executive -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Corporate quarterly review presentation slide on auditorium screen with navy blue and clean executive graphics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj-hHcsLy_7IudA9anP6Vpxz0aT7eptZ7PflJDcP1GpCzO29mSFNt2hbO2dJCrn1jz4GkJUvUyYsRSoSvWGEEDITfRKJejjc5_mNY72r2ahxebrXmJuj2wwU_HikdBaNpwBjSoLGwYaelmbUOAkBgTa6r6eJjeEfkd8lLGwtrT5F_xciLSG8AxUZ_4oUYxn9xU3rsiDYb_4rKzjbW_qqDJPFH8h2Ep-YGhbo2AHUAkSfNxLv_tPiqg"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">58:14</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      Quarterly Business Review – Q3 2024
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      Executive operational alignment, global margins, and year-end roadmap milestones.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 24, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Professional headshot portrait of an executive leader in formal attire with neutral gray studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEBSwWcx94CNzJLPbRFnHrE6M2OVLmRSK7nzR6Dvj-egY0PtMYiBf-TLTrW2LZwMCBUbS0rsMC0aBESt8kwcmg3BzkjLhWiKzGUAA7bpeaq2rBgxpBgyB-FRt3J71Hh68RQwWuCo31El001nlZZ81vDOi-1xHHXjoyS27nqv2HfRKF6XEIZGZKB9OvIlnDwgnSOAlnN5hO9IAVepfmjzZHBoagGB7sSSLDwDf8byFb7xUQUFuPe5Bh"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Dr. Aris Thorne</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container-highest text-on-surface-variant">
+                  Executive
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                58:14
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 25, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Engineering -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Technical code diagram showing REST API architecture flowcharts and system database models on developer display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAotr-Aw1yX6S3X0obqOjJW8Hkz1_pfsxFbEZJpRRTh5jIkEmPzx07W2nlVzvCrcI7aIFYweh0vbgIhx72aVk9D0Rd2zJhlG6Bg34KjLvbS4ydaqO-E6cdFakp7k-HISlCrCY93DX_tSN42-ycrW5Y3iaP01mHtnCArTQHsTE9pb1H22k_MMi_i4PvqZqpEUtUM1fXp8nWytjZB2HDSvKYJXqg9GNqhhoSthjPxp4ULm44V1P5aOP5S"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">1:14:02</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      Salesforce Architecture &amp; API Integration Workshop
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      Hands-on walkthrough of asynchronous event hooks and secure token refreshes.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 22, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Female software engineer portrait with eyeglasses smiling calmly in high-tech modern engineering office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPRsE6gjyHbLS-QVyBU7L2YLTcTJeOQ_KvL8fMhbryB0JuJeXgaRWW3_rSCfAqCsTtSRJHSGGANZd8V6ojYgp3RsB4PiqA1akYytBza18Zty-of5OQhMDvnd62xCsWh8jNFC3o7VnlKdHxgTg-kGPpjI_2yZAw-tvjj9BizkkPinsbpMZ8d61UZ1M_cZ0HXGz7ZKhUSX0BkRB5Ct7OmRdL_HIAFpcp9gaerNjepEMuz_KY0PS_EteM"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Elena Rostova</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-secondary-fixed text-on-secondary-fixed">
+                  Engineering
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                1:14:02
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 23, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Product -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Agile sprint board with sticky cards and delivery milestones visualized in modern product management tool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjSPsdMIrmd0bTAMpyhajZDBeR3EpNtOVhBwAqq0TclLKc14oqTRwjgcZNzKVvhRCwqQU9_XEcB7AZ3xOWavU-8IGafkmZarj899mEiimuvGcHPWYi0u4piNLPBYIA-NbKkn12hCISnU7EnHVy-hll4qA6vN_UQBnVR3YZY_GQsn_pAuapHJhCvj1r5nd0SvREFww0zezT-iuxgDhpE_kSAGvYPESSUGPBxc83H3j2N6n-v7wEP794"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">42:05</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      Project TRAC – Sprint 24 Milestone Review
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      Review of beta testing telemetry, customer sentiment, and rollout schedules.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 20, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Confident product manager smiling outdoors near glass corporate headquarters building on sunny morning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbBlnHQxWCww-Phm8wtd46FkLkWyFAkpYJlIsfIvf_w7jFdXLIdtDBpNvPr_kS1ANdZyvdelH4mnvV-LpubjMZs1DSgOQLTRF2W97_LOq5sRAukQEDgbUHMzhut7hzDM4IvWa2ASAENPeqCywQhbG1CpKDvL_imdFKC99i1GDoCbG2S88UV6bLdRLXX89vS1oDNvOFIUPzP7WccC4ewqLRRjrUIZa-aeHAOJQsUtg3--eqgix1M2Q-"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Marcus Vance</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-primary-fixed text-on-primary-fixed">
+                  Product
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                42:05
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 21, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Legal & Ops -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Cybersecurity defense compliance shield icon graphic on digital enterprise dashboard monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBppF0HPoxbAfiJNf_GP5Kk8uvcaOT4JSqNdeV_NwrcceHFfD9gm16QVfnPCpUM8NKK5wIUNDhCLg2YF8vWmGamzmc3wPUmD486mUdssHKn4X6V4hinPwZ2lHagWp5qabjkgH_kZP21YmZ9y-BAEKOArmIZXbSeHuARRoPbQRAqyLNXGW67w10dEM9kCLOrd7kKxpfFPs5fhC5s0K3nSQaydUJUvHZ7xUDwjGmwpc2yZhsRatf1_p47"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">38:50</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      Client Onboarding &amp; Enterprise Data Security
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      SOC-2 compliance guidelines, SSO configuration, and role-based permissions setup.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 18, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Headshot of a legal counsel professional woman wearing formal blazer with warm professional smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiTAbdKc3VU9ECouCKOJARQqnHJJ7wIL-y4jHqA-iqvlegksYsJvpsDvnXD5WjzwJ-S-eqbrxSxobTFMpTyTI3aspNQP0kBLluMwe4j8ioWktPZGI-0DqXdWtLaq5Dw3hbxhcw5x1DjmNfgcEvSHhid17fl1x1o4nE38TQqpUXJ5NMhs7_6OKt5MrAatCFlspmZeybEQAwr7OtcaiEXEfjXLsZYGyCzA7a1PPlNpnu8uvRKlEZxXAY"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Priya Patel</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed">
+                  Legal &amp; Ops
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                38:50
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 19, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Sales -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Global financial projections and pipeline charts shown on clean enterprise widescreen monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE4vxaDRnthXSb6lXJFTmrvf5i7mkktzSx82U_EkPVfM7Yx39uUEHfSLjMLwFglHLe1D9n7LE8eMGtHyu289QdenIWNz6v3YW__DefjjHZOiGORlgCRXtmm-C8c38HcaHiDEsOJIu5SY1230lfv5c9AH3r2rnwyt1ReEF6D2izIbKOIeUDCcU_bGL_xUUy6YFEW9xuPFpf1ZgbwgN76fyWzSwnfU4Yud2AZnu7H61OaaR1G3ow3EJX"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">51:20</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      Global Sales Pipeline &amp; Revenue Forecast Q4
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      Regional conversions, deal velocities, and key accounts renewal strategies.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 15, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Executive sales director smiling warmly in contemporary boardroom wearing tailored suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARyHQmJz4pWeVk25YKSZJsLTnV3xWarPPe4yHFeie4er-r5V06YNXWuZVxXe991Tzzqlz16VAyIySZlh08GmKjJv2Qyv7tJkQoiPla9BXx7DgDqVFXrMllCBXjPIDnld2QJ50FKd48qULTXWT0fg9GpdWm5QggZOS1bJG0ndijUgVTvTtT4OJkhDfDNqzXmr4VGDqkwJD_RcrCOZPWSgQpkvnGtlP0gB8-Ws-NAoAZqaRdQfOG7gw6"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">David Sterling</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container text-on-secondary-container">
+                  Sales
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                51:20
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 16, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: DevOps -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Kubernetes cloud server cluster telemetry and compute metrics on dark UI graph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl1_WoU_1pKGbglNrVxXfsnhaaS3h3bG64nCeKkcgAzqjAaUZ3CIgbMNG3RkSSz-EgE2I9zDXR15wJoSo1voUjvvHpIZY06f_HgyI6jypuKaGzgYyS4JGDxhLSjN6gU2_8jvNajZJLFSsWbb7vCklT_S-OyoPMdM2Xcz9NJYr2ZEdfurc0Rf8iltiik9oD1d-s9i3qMf_5ms24PnHlvU7tGB4vZE-Ns0PCGWeiXpY89V0W4Hf9rTn-"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">47:10</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      Cloud Infrastructure Cost Optimization Sprint
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      Kubernetes cluster right-sizing, auto-scaling thresholds, and multi-region CDN savings.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 12, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Portrait of an engineering technical lead in a relaxed tech startup environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa_wBClRWPDW1IroEjHqUi7duDZoY4FLWVQ5JM-GVbZuoBv-ffNab-pqnupSAMB6P5iiARBUNYP4SbWNaqXJqr1_LfWTrFalNHZGy3xZ6HU3bqeP7I3pShLPy2riephQW433B9QJwKIi8UXxnCbUSAdrYEBMrj5sM1Fd1cLjlGKcBXhKQDg5z5mRnDFXPb9qmJ_jnKpJ93g18e_9Rz04U0TPQvp3S9m7NrHkzJFv_QTHnk-Bd1Z5Co"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Alex Chen</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-secondary-fixed text-on-secondary-fixed">
+                  DevOps
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                47:10
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 13, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7: Design -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="rounded accent-accent-interactive cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-start gap-3">
+<div class="relative w-24 h-14 shrink-0 rounded bg-primary overflow-hidden shadow-sm group-hover:ring-2 group-hover:ring-accent-interactive/30 transition-all">
+<img class="w-full h-full object-cover" data-alt="Figma interface design wireframes, design tokens, and user journey mockups on modern workstation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTtZCaPJuxfqREHhsO0Trv1Z78weWCFKXVWqmka4gPG-CHlT8qgZGemISHP8hjfVHrqWQ9aPFYzm0J0IXGLfpOsfQg8CtuyFvfoQJzCFnPFSj818L9xOC-uXfwWQChCjbT2S-Bi_RKmJ9Fcv1acaZ05gdV8LP0T4z71JR2PdsZ_UPokJbGc9_i5lNvqu7xrCtVDTHPajYX5eoXOm6cKlwXjk3JiLDeO3yt7SFjgGqMI9ni8tQV5dQE"/>
+<span class="absolute bottom-1 right-1 px-1 py-0.2 bg-black/80 text-white font-code-sm text-code-sm rounded">33:45</span>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<a class="font-headline-sm text-headline-sm text-text-primary font-semibold truncate hover:text-accent-interactive transition-colors" href="#">
+                      UX Research Findings: Enterprise Portal Usability
+                    </a>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">
+                      Synthesis of 32 user interviews on video search velocity and discovery heuristics.
+                    </p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-secondary font-label-md text-label-md">
+                Oct 10, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Creative female design lead with pleasant confident smile in light filled architectural studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqspPVBUg_kocGyFD7SXU8O8NM9ZfpTZrEYi8jWFiQe9-JNoaNWp8JYCiQhBxPrae2WHqqsAcJf0DP5zZQR9WdPEGHss2dYPlo58fHNazt6RhB52EMVUcJKymBDbbLklNy4hLpZdjz08fF_x9pWmDCaCwsfHlxPkAZtXk-0RlsbINISzHRKkHidqsKOFEy_JV9rDOFalTZPy4DwRqTR4kFN9Zfq2B9GUEwAyjAEaaBH_RHkVXY2boR"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Maya Lin</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container-high text-on-surface">
+                  Design
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap font-code-sm text-code-sm text-text-secondary">
+                33:45
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-text-muted font-label-sm text-label-sm">
+                Oct 11, 2024
+              </td>
+<td class="py-3.5 px-4 whitespace-nowrap text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary-container text-white hover:bg-accent-interactive transition-colors text-label-sm font-label-sm inline-flex items-center gap-1 shadow-sm" title="Watch Video" type="button">
+<span class="material-symbols-outlined text-sm leading-none">play_arrow</span>
+<span>Watch</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Download recording" type="button">
+<span class="material-symbols-outlined text-base">download</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-tertiary-container transition-colors flex items-center justify-center" onclick="toggleStar(this)" title="Add to favorites" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded text-text-muted hover:text-text-primary hover:bg-surface-subtle transition-colors flex items-center justify-center" title="Options" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Active View Container: Grid View (Hidden by default, toggleable) -->
+<div class="hidden grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-space-lg" id="grid-view-section">
+<!-- Card 1 -->
+<div class="bg-surface-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative w-full aspect-video bg-primary overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Corporate quarterly review presentation slide on auditorium screen with navy blue and clean executive graphics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPm0QCHVGTSwm3IEFk6ihavzS1WxFa-iDt5nKCzs4KV1kBSjwgg2sBSvKq3eSOu4jM4AdArWaAK7dCicZ5_tRZ4c8puhfa_UWnL0C0urF6NliI3FHMr71AltlkSp2wm_gToGTs2U2Ui4Zgb200nBdqtyWcQTL0V0EFDRQKR1kd56Sv_zWtGni2ILBTT0qB7kzpYosM78-XFQDhNqFZwCArP6mdMOn7Qm3x2fMQWF3QnKv94iEHuZi7"/>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/85 text-white font-code-sm text-code-sm rounded">58:14</span>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-card/90 text-text-primary backdrop-blur-sm">
+            Executive
+          </div>
+<button class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-accent-interactive/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" type="button">
+<span class="material-symbols-outlined text-2xl">play_arrow</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm mb-1">
+<span>Oct 24, 2024</span>
+<button class="text-text-muted hover:text-tertiary-container" onclick="toggleStar(this)"><span class="material-symbols-outlined text-lg">star</span></button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-semibold line-clamp-1 hover:text-accent-interactive transition-colors">
+              Quarterly Business Review – Q3 2024
+            </h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-2 mt-1">
+              Executive operational alignment, global margins, and year-end roadmap milestones.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Professional headshot portrait of an executive leader in formal attire with neutral gray studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxOTQvqIBNjWaaF08pmnFMmXg2YW3tFKySEj_ucz38N2WGpHsT2dGQLNn-nGG1lSGdbQyHVhaJ9oTaFBdJ91JepBRQHyGAZAUqphEs78lOu1WmQxuEwEofkTwHfCswM6LCaGGW8nubNSSm1k4_SGO3q8sn7UKHSDAkDc1iCNXlM9g20GYIW2AI9U7qlIvZvTcO8wyX8gVv0rzslaLhXZe0C-B4Adysg01SuWHxA0ua5zH3bvNl4w1C"/>
+<span class="font-label-sm text-label-sm text-text-secondary font-medium">Dr. Aris Thorne</span>
+</div>
+<button class="text-text-muted hover:text-text-primary" type="button"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative w-full aspect-video bg-primary overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Technical code diagram showing REST API architecture flowcharts and system database models on developer display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHQ7NrU1eCmIHb65FsBmrS8Iiu9HeVE3jMgJERaczwwymmP6fjeiI1L4ExCMKb1OFPwkKnPo0RNntM86gPWGyxXe28oMzlCmgClzFxxnRYteZm7w9xqiext3yzyKD7Jc6-wHKh7y84r9oszxUfeoEz5RIUh9fvpS9BKPfZVjJL4vx7vcxxTcbpmIV_R6hA9GPLt5zPK4OIaFMnRAkwQ8vU5lNLnjBzNIfxpiDzNLYkBuG9hDjJT8KI"/>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/85 text-white font-code-sm text-code-sm rounded">1:14:02</span>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-card/90 text-text-primary backdrop-blur-sm">
+            Engineering
+          </div>
+<button class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-accent-interactive/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" type="button">
+<span class="material-symbols-outlined text-2xl">play_arrow</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm mb-1">
+<span>Oct 22, 2024</span>
+<button class="text-text-muted hover:text-tertiary-container" onclick="toggleStar(this)"><span class="material-symbols-outlined text-lg">star</span></button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-semibold line-clamp-1 hover:text-accent-interactive transition-colors">
+              Salesforce Architecture &amp; API Integration
+            </h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-2 mt-1">
+              Hands-on walkthrough of asynchronous event hooks and secure token refreshes.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Female software engineer portrait with eyeglasses smiling calmly in high-tech modern engineering office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2L8X1al7VclLzQ9s54T5hQFCcYJPmqUGrtH9gueUIxYsIDTj7miRexKhT1iNOmrrh0UykQAh_Lot_j33HmTwUMpG739ZM5DV3w0-x9tvTXD2YMfRlg5CnvtK8ifEG6ds4aYEw_5cwHEoGj1K5_-a4FehAUdplbnM6luCo5SM2h23ZDvbIJEIiV_utZM1S3K8uYNRaMb84W2T8u-OyHbWLmWOpZaZL9uPR7kA4UCYQYyQ3414Jrhmb"/>
+<span class="font-label-sm text-label-sm text-text-secondary font-medium">Elena Rostova</span>
+</div>
+<button class="text-text-muted hover:text-text-primary" type="button"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative w-full aspect-video bg-primary overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Agile sprint board with sticky cards and delivery milestones visualized in modern product management tool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwMfqoQRceJVI5zrFDuWST2NSR-vyI82ldSnC3J-EZGXhzHj6E1ZObPx9pbY_0VfRe-cdbzCku9TzIjjOHRWa348RkbjsWxXQcC2gQ1-X4jjFJmJFjMmJh9jhyuT0faw0_kWHRXnYTpTEdFyazxwN4xG9V47NfkYGcwWGnPaTP_utHfsT5vwChGRLI0GLZNTvJzL4TiIkQm4ufjXTi9dSHDv7AJrqBWV2Y6MOd2YQC4y6l4fxzeCP4"/>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/85 text-white font-code-sm text-code-sm rounded">42:05</span>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-card/90 text-text-primary backdrop-blur-sm">
+            Product
+          </div>
+<button class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-accent-interactive/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" type="button">
+<span class="material-symbols-outlined text-2xl">play_arrow</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm mb-1">
+<span>Oct 20, 2024</span>
+<button class="text-text-muted hover:text-tertiary-container" onclick="toggleStar(this)"><span class="material-symbols-outlined text-lg">star</span></button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-semibold line-clamp-1 hover:text-accent-interactive transition-colors">
+              Project TRAC – Sprint 24 Milestone Review
+            </h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-2 mt-1">
+              Review of beta testing telemetry, customer sentiment, and rollout schedules.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Confident product manager smiling outdoors near glass corporate headquarters building on sunny morning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5vahYboPRVq3qzj-1y0T95QU6pu6Nptj2luf6YsMFTZYq4dT_emquQvtxi3kngY4UNXx-doGGVFyEHEp2aVS-UevFMCN-VvADDp1iwOQyLL1H-LIBJSXpEIkaknUZhuN7JH1NEXuSNxEainwFCCV_qYUPyL5TIJyTWW3Uv7O8zJCUiaUTSahNw_CVb0CAbcZ7UzHnN-p0yhFeZLI3iwifEAIsQcc49xBIrWwagTa8D8IZGF0ipdq"/>
+<span class="font-label-sm text-label-sm text-text-secondary font-medium">Marcus Vance</span>
+</div>
+<button class="text-text-muted hover:text-text-primary" type="button"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
+<div class="relative w-full aspect-video bg-primary overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cybersecurity defense compliance shield icon graphic on digital enterprise dashboard monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA47P00wysL1oQN4LAFN13r3shRPPh4CsNy1l8zSB9soOxK_r2qQJcbdkIePjsleoMe12GL2wLFe6au4yUx5u4JXg4e7ao_lPL10-SleWvOrf8yitXt1tsu7Hc-DRZf1FLTqmdKv8plGwHsKRtI11y5NrDCh0Ts-xOeK3OammyCCXmHUteI5jHVBsvfi4S98bny2nGR4erNVt5xPpnZkgKVWWqS0usfqydvZRb9i7u_3fMDZUjsyGHE"/>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/85 text-white font-code-sm text-code-sm rounded">38:50</span>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-card/90 text-text-primary backdrop-blur-sm">
+            Legal &amp; Ops
+          </div>
+<button class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-accent-interactive/90 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" type="button">
+<span class="material-symbols-outlined text-2xl">play_arrow</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm mb-1">
+<span>Oct 18, 2024</span>
+<button class="text-text-muted hover:text-tertiary-container" onclick="toggleStar(this)"><span class="material-symbols-outlined text-lg">star</span></button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-semibold line-clamp-1 hover:text-accent-interactive transition-colors">
+              Client Onboarding &amp; Data Security
+            </h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-2 mt-1">
+              SOC-2 compliance guidelines, SSO configuration, and role permissions setup.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Headshot of a legal counsel professional woman wearing formal blazer with warm professional smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsb_9qLHpN2dy2hFK8hyIp_f8yvnaWpO1TvO2MZu4coSmtygLI8If4OUipHhvWwRixXtbYYhiNkYWfSWnySToFrVaegm2mbUsbfczi6VmxuxyFDHGQWVZ-A-_XXDxWodxaP_DIwXyGcOfi1qCm-VlfYnJDPziQJtKEI4RtICQqimIon5KDZK0RezIovZzLNV4EdZnRpGKlnggHeqc7Lz8qwNO6iLzdStmDtFBW0JHzYBirw-yxCsJ3"/>
+<span class="font-label-sm text-label-sm text-text-secondary font-medium">Priya Patel</span>
+</div>
+<button class="text-text-muted hover:text-text-primary" type="button"><span class="material-symbols-outlined text-lg">download</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Enterprise Pagination Footer -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="font-label-md text-label-md text-text-muted">
+        Showing <span class="font-semibold text-text-primary">1</span> to <span class="font-semibold text-text-primary">7</span> of <span class="font-semibold text-text-primary">148</span> videos
+      </div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-3 rounded bg-surface-subtle hover:bg-surface-container text-text-secondary font-label-md text-label-md flex items-center gap-1 transition-colors disabled:opacity-50" type="button">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+<span>Previous</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-primary-container text-white font-label-md text-label-md font-medium" type="button">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-subtle text-text-secondary font-label-md text-label-md transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-subtle text-text-secondary font-label-md text-label-md transition-colors" type="button">3</button>
+<span class="w-6 text-center text-text-muted text-sm">...</span>
+<button class="w-8 h-8 rounded hover:bg-surface-subtle text-text-secondary font-label-md text-label-md transition-colors" type="button">22</button>
+</div>
+<button class="h-8 px-3 rounded bg-surface-subtle hover:bg-surface-container text-text-secondary font-label-md text-label-md flex items-center gap-1 transition-colors" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function toggleView(mode) {
+    const listSection = document.getElementById('list-view-section');
+    const gridSection = document.getElementById('grid-view-section');
+    const listBtn = document.getElementById('view-list-btn');
+    const gridBtn = document.getElementById('view-grid-btn');
+
+    if (mode === 'list') {
+      listSection.classList.remove('hidden');
+      gridSection.classList.add('hidden');
+      listBtn.className = 'w-8 h-8 flex items-center justify-center rounded bg-surface-card text-accent-interactive shadow-sm transition-all';
+      gridBtn.className = 'w-8 h-8 flex items-center justify-center rounded text-text-muted hover:text-text-primary transition-all';
+    } else {
+      listSection.classList.add('hidden');
+      gridSection.classList.remove('hidden');
+      gridBtn.className = 'w-8 h-8 flex items-center justify-center rounded bg-surface-card text-accent-interactive shadow-sm transition-all';
+      listBtn.className = 'w-8 h-8 flex items-center justify-center rounded text-text-muted hover:text-text-primary transition-all';
+    }
+  }
+
+  function toggleStar(btn) {
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (icon.getAttribute('style') && icon.getAttribute('style').includes('FILL')) {
+      icon.removeAttribute('style');
+      btn.classList.remove('text-on-tertiary-container');
+      btn.classList.add('text-text-muted');
+    } else {
+      icon.setAttribute('style', "font-variation-settings: 'FILL' 1;");
+      btn.classList.remove('text-text-muted');
+      btn.classList.add('text-on-tertiary-container');
+    }
+  }
+
+  // Micro-interaction for search table filtering preview
+  document.getElementById('table-search').addEventListener('input', function(e) {
+    const val = e.target.value.toLowerCase();
+    const rows = document.querySelectorAll('#list-view-section tbody tr');
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      row.style.display = text.includes(val) ? '' : 'none';
+    });
+  });
+</script></main></div></body></html>
